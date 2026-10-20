@@ -1,7 +1,5 @@
 # Practica-extendida-POO-Y-TDA-
 
-# Práctica 11 - Nómina Mensual en Java
-
 ## Descripción
 Este proyecto consiste en desarrollar un programa en Java para registrar empleados y calcular la nómina mensual de una empresa el programa permite ingresar empleados fijos y empleados por hora, calcular sus pagos y mostrar un reporte con el total de trabajadores y el total de la nómina.
 
