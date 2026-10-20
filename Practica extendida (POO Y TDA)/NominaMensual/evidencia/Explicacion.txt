@@ -1,0 +1,87 @@
+PRÁCTICA 11 - NÓMINA MENSUAL EN JAVA
+PROGRAMACIÓN II
+
+ARCHIVOS
+- src/modelo/Empleado.java: clase abstracta con los datos comunes.
+- src/modelo/EmpleadoFijo.java: clase hija para empleados fijos.
+- src/modelo/EmpleadoPorHora.java: clase hija para empleados por hora.
+- src/aplicacion/Main.java: selección del mes, menús, captura y reporte.
+
+CONCEPTOS OBLIGATORIOS Y DÓNDE SE UTILIZAN
+
+1. Proyecto, package e import
+El proyecto está organizado en los paquetes modelo y aplicación cada archivo declara su package.
+Main importa las clases del paquete modelo, además de java.util.ArrayList y java.util.Scanner.
+
+2. Clase, objeto, instancia e instanciación
+Empleado, EmpleadoFijo y EmpleadoPorHora son clases. En Main se crea un objeto con new
+EmpleadoFijo(...) o new EmpleadoPorHora(...). Cada objeto representa un empleado registrado.
+
+3. Constructor, parámetros, argumentos y this
+Los constructores reciben los datos iniciales por ejemplo, en EmpleadoFijo:
+public EmpleadoFijo(String dpi, String nombre, double sueldoMensual, double bonificacion)
+Los nombres dpi, nombre, sueldoMensual y bonificacion son parámetros.
+En la llamada new EmpleadoFijo(dpi, nombre, sueldoMensual, bonificacion), los valores enviados
+son argumentos. En Empleado se usa this.dpi = dpi y this.nombre = nombre para distinguir
+los atributos de los parámetros. Los constructores no tienen tipo de retorno.
+
+4. Encapsulamiento y modificadores de acceso
+Todos los atributos declarados en las clases son private. Los datos comunes se consultan mediante
+getDpi() y getNombre(); las clases hijas también ofrecen getters para sus datos específicos.
+Las variables locales y los parámetros no llevan private.
+
+5. Abstracción y métodos abstractos
+Empleado es abstract y declara calcularPago() y obtenerTipo() como métodos abstractos.
+No se crea directamente un objeto Empleado; se crean objetos de sus clases concretas.
+
+6. Herencia y sobrescritura
+EmpleadoFijo y EmpleadoPorHora usan extends Empleado y llaman super(dpi, nombre) en sus
+constructores. Ambas clases implementan calcularPago() y obtenerTipo() con @Override.
+No duplican los atributos dpi y nombre.
+
+7. Polimorfismo
+La colección es ArrayList<Empleado>, por lo que almacena tanto EmpleadoFijo como EmpleadoPorHora.
+En el reporte, el recorrido usa referencias de tipo Empleado y llama a calcularPago().
+Cada objeto ejecuta su propia fórmula; el reporte no usa if, switch ni instanceof para decidirla.
+
+8. Arreglo simple String[] y consulta del mes
+En Main se declara String[] meses con los doce meses en orden. Se valida numeroMes entre 1 y 12.
+Para mostrar el mes se usa meses[numeroMes - 1], por ejemplo, si numeroMes es 3 se muestra Marzo.
+La consulta directa se usa en títulos de menú, captura y reporte.
+
+9. ArrayList: add(), size() y recorrido
+empleados.add(empleado) agrega un empleado ya validado.
+empleados.size() muestra la cantidad de trabajadores.
+El for-each recorre la colección para imprimir los datos y sumar los pagos.
+
+10. Métodos, ámbito y alcance
+main() es el punto de entrada y delega tareas en métodos como mostrarMenuPrincipal(),
+ingresarNomina(), registrarEmpleadoFijo(), registrarEmpleadoPorHora() e imprimirNomina().
+leerEnteroEnRango() y leerDoubleNoNegativo() reciben parámetros y devuelven resultados.
+Atributo: sueldoMensual en EmpleadoFijo, disponible mediante métodos de esa clase.
+Parámetro: nombre en el constructor de Empleado.
+Variable local: totalNomina en imprimirNomina(), utilizada dentro de ese método.
+
+11. Validaciones implementadas
+- Mes y opciones de menú: enteros dentro del rango permitido.
+- DPI: exactamente 13 dígitos, almacenado como String.
+- Nombre: no vacío ni compuesto solo por espacios.
+- Sueldo, bonificación, pago por hora y horas: valores numéricos finitos >= 0.
+- Los errores vuelven a solicitar el dato sin cerrar el programa.
+- El empleado solo se agrega después de validar todos sus campos.
+
+12. Fórmulas exigidas
+Empleado fijo: sueldo mensual + bonificación.
+Empleado por hora: pago por hora x horas trabajadas.
+No se aplican descuentos, horas extra ni cálculos adicionales.
+
+COMPROBACIÓN DEL DOCUMENTO
+Seleccione el mes 3 (Marzo) y registre:
+- DPI 1234567890101, Ana López, sueldo 4000, bonificación 300.
+- DPI 9876543210101, Luis Pérez, pago por hora 25, horas 120.
+
+Resultado esperado:
+- Ana López: Q 4300.00
+- Luis Pérez: Q 3000.00
+- Total de trabajadores: 2
+- Total de nómina: Q 7300.00

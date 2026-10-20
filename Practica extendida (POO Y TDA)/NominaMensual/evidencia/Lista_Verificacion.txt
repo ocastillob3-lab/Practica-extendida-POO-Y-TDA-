@@ -1,0 +1,60 @@
+PRÁCTICA EN CLASE 11
+NÓMINA MENSUAL - PROGRAMACIÓN II
+
+ESTRUCTURA Y ORGANIZACIÓN
+[OK] Proyecto Java importable en Eclipse con .project, .classpath y .settings.
+[OK] Cada clase está en su propio archivo .java.
+[OK] Paquete modelo: Empleado, EmpleadoFijo, EmpleadoPorHora.
+[OK] Paquete aplicacion: Main.
+[OK] Imports para las clases de modelo, ArrayList y Scanner.
+
+MESES Y MENÚS
+[OK] String[] meses contiene los 12 meses en orden.
+[OK] Se solicita un número de mes entre 1 y 12 y se valida antes de acceder al arreglo.
+[OK] Se usa meses[numeroMes - 1] para mostrar el mes; no se usa if/switch para traducir número a nombre.
+[OK] El menú se repite hasta elegir 3.
+[OK] Las opciones se validan y se vuelven a solicitar si son inválidas.
+[OK] La consola se limpia de forma simulada con líneas en blanco, compatible con consolas de IDE.
+
+REGISTRO DE EMPLEADOS
+[OK] Submenú para empleado fijo o por hora.
+[OK] Contador tomado de empleados.size().
+[OK] Empleado fijo solicita DPI, nombre, sueldo mensual y bonificación.
+[OK] Empleado por hora solicita DPI, nombre, pago por hora y horas trabajadas.
+[OK] Los cálculos usan solo las fórmulas del enunciado; no hay descuentos ni horas extra.
+[OK] Se valida DPI de exactamente 13 dígitos.
+[OK] Se rechazan nombres vacíos o compuestos solo por espacios.
+[OK] Se validan números finitos mayores o iguales a cero.
+[OK] Los errores solicitan nuevamente el dato.
+[OK] El objeto se crea y agrega solo después de validar todos sus datos.
+[OK] Se permite ingresar otro empleado o regresar al menú principal.
+
+REPORTE
+[OK] Incluye mes, DPI, nombre, tipo y pago por empleado.
+[OK] Los montos se muestran en quetzales con dos decimales.
+[OK] Muestra total de trabajadores y total de nómina.
+[OK] Con colección vacía, muestra el mensaje indicado, 0 trabajadores y Q 0.00.
+[OK] Espera Enter antes de regresar al menú.
+[OK] Consultar no borra ni duplica empleados.
+
+POO Y CONCEPTOS
+[OK] Empleado es abstracta y declara calcularPago().
+[OK] Todos los atributos de las clases son private.
+[OK] Las clases hijas extienden Empleado y llaman super(...).
+[OK] Constructores con parámetros y uso de this donde corresponde.
+[OK] Getters para consultar atributos.
+[OK] @Override para calcularPago() en cada clase hija.
+[OK] ArrayList<Empleado> guarda ambos tipos de empleados.
+[OK] El recorrido del reporte utiliza referencias Empleado y polimorfismo, sin if/switch/instanceof para elegir la fórmula.
+[OK] Métodos auxiliares separan menú, captura, registro y reporte.
+[OK] Explicacion.txt identifica atributo, parámetro, argumento, variable local, add(), size() y recorrido del ArrayList.
+
+RESULTADO DE PRUEBA PRINCIPAL
+[OK] Mes 3 muestra MARZO.
+[OK] Ana López: sueldo Q 4000 + bonificación Q 300 = Q 4300.00.
+[OK] Luis Pérez: 120 horas x Q 25 = Q 3000.00.
+[OK] 2 trabajadores; total Q 7300.00.
+
+RESULTADO DE PRUEBA DE NÓMINA VACÍA
+[OK] La entrada de mes 0 fue rechazada y se volvió a solicitar el mes.
+[OK] El reporte vacío muestra el mensaje indicado, 0 trabajadores y Q 0.00.

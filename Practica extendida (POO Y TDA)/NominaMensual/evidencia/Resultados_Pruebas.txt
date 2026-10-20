@@ -1,0 +1,30 @@
+RESULTADOS DE PRUEBAS EJECUTADAS
+
+1) COMPILACIÓN
+Comando javac sobre las cuatro clases del proyecto.
+Resultado: correcta, sin errores de compilación.
+
+2) CASO PRINCIPAl
+Entradas:
+Mes: 3
+Empleado fijo: DPI 1234567890101, Ana López, sueldo 4000, bonificación 300.
+Empleado por hora: DPI 9876543210101, Luis Pérez, pago por hora 25, horas 120.
+
+Comprobaciones en la salida:
+- NÓMINA DEL MES: MARZO
+- Ana López: 4300.00
+- Luis Pérez: 3000.00
+- Total de trabajadores: 2
+- Total de nómina: Q 7300.00
+
+Resultado: correcto.
+
+3) NÓMINA VACÍA Y MES INVÁLIDO
+Entradas: mes 0, luego mes 3; imprimir nómina sin empleados.
+Comprobaciones:
+- Se rechaza el mes fuera de rango.
+- Se muestra el mensaje de nómina vacía.
+- Total de trabajadores: 0.
+- Total de nómina: Q 0.00.
+
+Resultado: correcto.
